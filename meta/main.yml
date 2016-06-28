@@ -1,0 +1,23 @@
+galaxy_info:
+  author: The Prudents
+  description: Collection of common used languages.
+  company: https://squads.com/teams/the-prudents
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: Ubuntu
+    versions:
+      - trusty
+      - xenial
+  galaxy_tags:
+    - nvm
+    - nodejs
+    - js
+    - java
+    - jdk
+    - jre
+    - scala
+    - sbt
+    - python
+    - ubuntu
+dependencies: []

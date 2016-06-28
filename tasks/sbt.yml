@@ -1,0 +1,26 @@
+---
+  # Parameters:
+  #  sbt_base_url (provided)
+  #  sbt_version (provided)
+  #  sbt_artifact (provided)
+
+  - include: "jdk.yml"
+
+  - name: SBT | Check if is present
+    command: test -x /usr/bin/sbt
+    when: ansible_system == "Linux"
+    ignore_errors: yes
+    register: sbt_present
+
+  - name: SBT | Download
+    get_url: url={{sbt_base_url}}/{{sbt_artifact}} dest=/tmp/{{sbt_artifact}}
+    when: ansible_os_family == "Debian" and sbt_present|failed
+
+  - name: SBT | Install
+    command: dpkg -i /tmp/{{sbt_artifact}}
+    when: ansible_os_family == "Debian" and sbt_present|failed
+    become: yes
+
+  - name: SBT | Remove installer
+    file: path=/tmp/{{sbt_artifact}} state=absent
+    when: ansible_os_family == "Debian" and sbt_present|failed

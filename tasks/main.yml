@@ -1,0 +1,25 @@
+---
+  - name: Main | Install Java JDK
+    include: "jdk.yml"
+    when: install-jdk
+    tags: jdk
+
+  - name: Main | Install Java JRE
+    include: "jre.yml"
+    when: install-jre
+    tags: jre
+
+  - name: Main | Install NodeJS
+    include: "nodejs.yml"
+    when: install-js
+    tags: nodejs
+
+  - name: Main | Install SBT
+    include: "sbt.yml"
+    when: install-sbt
+    tags: sbt
+
+  - name: Main | Install Python
+    include: "python.yml"
+    when: install-python
+    tags: python

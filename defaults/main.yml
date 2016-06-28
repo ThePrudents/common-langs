@@ -1,0 +1,20 @@
+---
+  install-jdk: false
+  java_apt_repository: "ppa:webupd8team/java"
+  java_jdk_version: 8
+
+  install-jre: false
+  java_jre_version: 8u66
+  java_jre_build: b17
+
+  install-sbt: false
+  sbt_base_url: https://dl.bintray.com/sbt/debian
+  sbt_version: 0.13.11
+  sbt_artifact: sbt-{{sbt_version}}.deb
+
+  install-js: false
+  nvm_version: v0.29.0
+  node_version: v4.4.6
+  node_path: "{{ansible_env.HOME}}/.nvm/versions/node/{{node_version}}"
+
+  install-python: false
