@@ -12,3 +12,8 @@
     shell: curl https://bootstrap.pypa.io/get-pip.py | python
     when: ansible_os_family == "Debian"
     become: yes
+
+  - name: Python | Upgrade setuptools
+    command: pip install --upgrade setuptools
+    when: ansible_os_family == "Debian"
+    become: yes
